@@ -78,7 +78,7 @@ with open(save_as, 'wb') as f:
     # writing a 238 byte xml file that will just raise a cryptic
     # error when we try to decompress it
     download.raise_for_status()
-    for chunk in r.iter_content(chunk_size=1024):
+    for chunk in download.iter_content(chunk_size=1024):
         if chunk:
             f.write(chunk)
             f.flush()
