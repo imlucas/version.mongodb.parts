@@ -25,8 +25,10 @@ http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?b
 
 ### Scripting
 
-You can also hit the [REST API][#api], which is quite handy for scripting
+You can also hit the [REST API](#api), which is quite handy for scripting
 a download on Windows:
+
+#### Powershell
 
 ```powershell
 $body = @{
@@ -47,6 +49,7 @@ $res = (Invoke-RestMethod $url -Headers $headers -Body $params)
 $webclient = New-Object System.Net.WebClient
 $webclient.DownloadFile($res.url, "$pwd\$res.filename")
 ```
+#### Python
 
 ```python
 import requests
