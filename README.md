@@ -1,5 +1,8 @@
 # version.mongodb.parts
 
+[![wercker status](https://app.wercker.com/status/0d24033618b897beb638c77eeeb42fe1/m "wercker status")](https://app.wercker.com/project/bykey/0d24033618b897beb638c77eeeb42fe1)
+
+
 Download MongoDB binaries and look up version information.
 
 ## Examples
@@ -8,9 +11,9 @@ Download MongoDB binaries and look up version information.
 
 http://version.mongodb.parts/download/stable?platform=osx
 
-> Do you know where I might be able to download the 2.8 rc0 for ubuntu 32-bit?
+> Do you know where I might be able to download the 2.8 rc0 for ubuntu 64-bit?
 
-http://version.mongodb.parts/download/unstable?platform=linux&bits=32
+http://version.mongodb.parts/download/unstable?platform=linux&bits=64
 
 > What is the URL to download the latest 2.6 series for windows 64-bit with debugging?
 

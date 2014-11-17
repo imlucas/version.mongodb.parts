@@ -3,7 +3,9 @@
   "description": "Download MongoDB binaries and look up version information.",
   "version": "0.0.0",
   "scripts": {
-    "start": "bin/version.mongodb.parts.js"
+    "start": "bin/version.mongodb.parts.js",
+    "test": "mocha",
+    "ci": "mocha"
   },
   "dependencies": {
     "boom": "^2.6.0",
@@ -27,5 +29,9 @@
     "mongodb.js"
   ],
   "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "supertest": "^0.15.0"
+  }
 }
