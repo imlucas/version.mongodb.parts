@@ -12,7 +12,7 @@ describe('version.mongodb.parts', function(){
       if(err) return done(err);
 
       assert.equal(res.headers.location.indexOf('http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-'), 0);
-      assert(/stable=\d+\.[68]+\.\d+/.test(res.headers['mongodb-version']));
+      assert(/\d+\.[68]+\.\d+/.test(res.headers['mongodb-version']));
       done(err);
     });
   });
@@ -21,7 +21,7 @@ describe('version.mongodb.parts', function(){
     GET('/download/unstable?platform=linux&bits=64', function(err, res){
       if(err) return done(err);
       assert.equal(res.headers.location.indexOf('http://fastdl.mongodb.org/linux/mongodb-linux-x86_64'), 0);
-      assert(/stable=\d+\.[89]+\.\d+(:-rc\d+)?/.test(res.headers['mongodb-version']));
+      assert(/\d+\.[89]+\.\d+(:-rc\d+)?/.test(res.headers['mongodb-version']));
       done(err);
     });
   });

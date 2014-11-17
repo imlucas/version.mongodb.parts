@@ -1,4 +1,4 @@
-# version.mongodb.parts
+# [version.mongodb.parts](http://version.mongodb.parts)
 
 [![wercker status](https://app.wercker.com/status/c7297af82fce3c30fce03d4c674acc32/m "wercker status")](https://app.wercker.com/project/bykey/c7297af82fce3c30fce03d4c674acc32)
 
@@ -26,24 +26,37 @@ http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?b
 
 ### /api/v1/{version}
 
-+ Parameters
-  + version (string) ... Semver-ish versions (e.g. `2.6.5`, `2.4.x`, `2.8.x`), shortcuts (e.g. `stable -> lastest even minor version`, `unstable|latest ->latest odd minor version`), or commit sha1 (see buildvariant below)
+#### Parameters
+  + version (string) ... Semver-ish versions (e.g. `2.6.5`, `2.4.x`, `2.8.x`), shortcut (e.g. `stable -> lastest even minor version`, `unstable|latest ->latest odd minor version`), or commit sha1 (see distro below)
   + platform (string) ... win32|osx|darwin|linux|solaris
   + bits (string) ... 32|64
   + debug (boolean) ... Include debug symbols
   + distro (string) ... Required if version is a sha1 to map onto mci, ignored if not a sha1
   + branch (string, `master`) ... Branch commit was in because of mci id structure
 
-+ Response 200 (text/plain)
+#### Response 200 (text/plain)
 
-  http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.6.5.tgz
+##### Headers
 
-## Deployment
+    Connection: keep-alive
+    Date: Mon, 17 Nov 2014 15:30:58 GMT
+    ETag: W/"3a-631db0b6"
+    Vary: Accept
+    mongodb-version: 2.6.5
+    X-Content-Type-Options: nosniff
+    X-Download-Options: noopen
+    X-Frame-Options: SAMEORIGIN
+    X-XSS-Protection: 1; mode=block
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+##### Body
 
-By default, listens on port `3000` which can be configured with the `listen`
-environment variable or command line option, e.g. `listen=http://127.0.0.1:5000 npm start`.
+    http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.6.5.tgz
+
+## Testing
+
+```
+npm test
+```
 
 ## License
 
