@@ -1,0 +1,30 @@
+{
+  "name": "version.mongodb.parts",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "bin/version.mongodb.parts.js"
+  },
+  "dependencies": {
+    "boom": "^2.6.0",
+    "compression": "^1.2.0",
+    "express": "^4.10.2",
+    "express-cors": "0.0.3",
+    "helmet": "^0.5.2",
+    "im-cache": "0.0.2",
+    "mongodb-version-manager": "^0.4.0",
+    "nconf": "^0.6.9"
+  },
+  "bin": {
+    "version.mongodb.parts": "version.mongodb.parts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imlucas/version.mongodb.parts.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mongodb.js"
+  ],
+  "author": "Lucas Hrabovsky <hrabovsky.lucas@gmail.com> (http://imlucas.com)",
+  "license": "MIT"
+}
