@@ -1,7 +1,6 @@
 # version.mongodb.parts
 
-[![wercker status](https://app.wercker.com/status/0d24033618b897beb638c77eeeb42fe1/m "wercker status")](https://app.wercker.com/project/bykey/0d24033618b897beb638c77eeeb42fe1)
-
+[![wercker status](https://app.wercker.com/status/c7297af82fce3c30fce03d4c674acc32/m "wercker status")](https://app.wercker.com/project/bykey/c7297af82fce3c30fce03d4c674acc32)
 
 Download MongoDB binaries and look up version information.
 
