@@ -1,0 +1,6 @@
+{
+  "name": "version.mongodb.parts",
+  "description": "Download MongoDB binaries and look up version information.",
+  "repository": "https://github.com/imlucas/version.mongodb.parts",
+  "keywords": ["mongodb", "mongodb.js"]
+}

@@ -36,6 +36,13 @@ http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?b
 
   http://fastdl.mongodb.org/osx/mongodb-osx-x86_64-2.6.5.tgz
 
+## Deployment
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+By default, listens on port `3000` which can be configured with the `listen`
+environment variable or command line option, e.g. `listen=http://127.0.0.1:5000 npm start`.
+
 ## License
 
 MIT
