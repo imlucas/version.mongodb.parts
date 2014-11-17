@@ -6,21 +6,80 @@ Download MongoDB binaries and look up version information.
 
 ## Examples
 
+### Links
+
+Easy to share, the `/download/{version}` will just resolve and redirect to the
+request straight to the tarball (or zip for windows).
+
 > Where can I download the latest stable version of MongoDB for OSX?
 
 http://version.mongodb.parts/download/stable?platform=osx
 
-> Do you know where I might be able to download the 2.8 rc0 for ubuntu 64-bit?
+> Do you know where I might be able to download the 2.8 rc0 for windows 64-bit?
 
-http://version.mongodb.parts/download/unstable?platform=linux&bits=64
-
-> What is the URL to download the latest 2.6 series for windows 64-bit with debugging?
-
-http://version.mongodb.parts/download/2.6.x?platform=win32&bits=64&debug=yes
+http://version.mongodb.parts/download/unstable?platform=win32&bits=64
 
 > What about commit [3898bb](3898bb) on the v2.6 branch for fedora8?
 
 http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?branch=v2.6&buildvariant=fedora8
+
+### Scripting
+
+You can also hit the [REST API][#api], which is quite handy for scripting
+a download on Windows:
+
+```powershell
+$body = @{
+  platform = "win32"
+  bits = "32"
+}
+if ([Environment]::Is64BitProcess) {
+    $body.bits = "64"
+}
+
+$headers = @{
+  Accept = "application/json"
+}
+
+$url = "http://versions.mongodb.parts/api/v1/latest"
+$res = (Invoke-RestMethod $url -Headers $headers -Body $params)
+
+$webclient = New-Object System.Net.WebClient
+$webclient.DownloadFile($res.url, "$pwd\$res.filename")
+```
+
+```python
+import requests
+import platform
+import json
+
+# versions.mongodb.parts will handle normalizing these for us e.g.:
+# - platform: `Windows` -> `win32`
+# - bits: `64bit` -> `64`
+params = {
+  'bits': platform.architecture()[0]
+  'platform': platform.system()
+}
+url = 'http://version.mongodb.parts/api/v1/stable'
+req = requests.get(url, headers={'Accept': 'application/json'})
+req.raise_for_status()
+metadata = req.json()
+
+# Where to put the zip or tarball
+save_as = './{}'.format(metadata.filename)
+
+# Download it
+download = requests.get(metadata.url, stream=True)
+with open(save_as, 'wb') as f:
+    # Raise an exception if we get a 404 instead of silently
+    # writing a 238 byte xml file that will just raise a cryptic
+    # error when we try to decompress it
+    download.raise_for_status()
+    for chunk in r.iter_content(chunk_size=1024):
+        if chunk:
+            f.write(chunk)
+            f.flush()
+```
 
 ## API
 
@@ -39,10 +98,11 @@ http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?b
 ##### Headers
 
     Connection: keep-alive
+    Content-Length: 62
+    Content-Type: text/plain; charset=utf-8
     Date: Mon, 17 Nov 2014 15:30:58 GMT
     ETag: W/"3a-631db0b6"
     Vary: Accept
-    mongodb-version: 2.6.5
     X-Content-Type-Options: nosniff
     X-Download-Options: noopen
     X-Frame-Options: SAMEORIGIN
