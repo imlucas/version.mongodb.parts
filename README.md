@@ -21,7 +21,7 @@ http://version.mongodb.parts/download/unstable?platform=win32&bits=64
 
 > What about commit [3898bb](3898bb) on the v2.6 branch for fedora8?
 
-http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?branch=v2.6&buildvariant=fedora8
+http://version.mongodb.parts/download/3898bb1e160e1118a84114620bec62e63254ed77?branch=v2.6&distro=fedora8
 
 ### Scripting
 
